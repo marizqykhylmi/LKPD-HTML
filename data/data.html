@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Nama</title>
+</head>
+<body>
+    <input type="search" id="search-input" placeholder="Search...">
+    <button id="search-button">Submit</button>
+    <div id="search-result">Tidak mencari data....</div>
+    <script>
+      const searchInput = document.getElementById('search-input');
+      const searchButton = document.getElementById('search-button');
+      const searchResult = document.getElementById('search-result');
+
+      searchButton.addEventListener('click', () => {
+        const searchText = searchInput.value;
+        searchResult.innerHTML = `Mencari data ${searchText}` ;
+      });
+    </script>
+</body>
+</html>

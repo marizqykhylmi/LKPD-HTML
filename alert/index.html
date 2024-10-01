@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Alert Box</title>
+<style type="text/css">
+body {height:100%;margin:0;padding:0;}
+#overlay {
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    height:100%;
+    text-align:center;
+    z-index: 10;
+    background-color:rgba(0,0,0,0.5);
+}
+#overlay div {
+    width:300px;
+    margin: 100px auto;
+    background-color: red;
+    border:3px solid #a0a0a0;
+    border-radius:10px;
+    box-shadow:3px 3px 5px 6px #606060;
+    padding:15px;
+    text-align:left;
+    border-radius: 50px;
+}
+</style>
+<script type="text/javascript">
+function overlay() {
+    var el = document.getElementById("overlay");
+    var countdownText = document.getElementById("countdownText");
+    var timeLeft = 5;
+
+    el.style.visibility = "visible";
+    countdownText.innerHTML = timeLeft + " detik";
+
+    var timer = setInterval(function(){
+        timeLeft--;
+        countdownText.innerHTML = timeLeft + " detik";
+        if(timeLeft <= 0){
+            clearInterval(timer);
+            el.style.visibility = "hidden";
+        }
+    }, 1000);
+}
+</script>
+</head>
+<body>
+<h1>Alert!</h1>
+<div id="overlay">
+    <div>
+        <img src="download.jpeg" style="width:30px;height:30px;vertical-align:middle"> 
+        <b>Alert!</b>
+        <hr/>
+        <p>Danger! Alert akan tertutup dalam <span id="countdownText">5 detik</span></p>
+    </div>
+</div>
+<p>
+<input type="button" onclick="overlay()" value="Munculkan Alert!" />
+</p>
+</body>
+</html>

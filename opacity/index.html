@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opacity</title>
+    <style>
+        .image-preview {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Opacity</h1>
+
+    <!-- Pilihan Gambar -->
+    <label for="image-select">Pilih Gambar:</label>
+    <select id="image-select">
+        <option value="wikrama-logo.png">Gambar 1</option>
+        <option value="White Minimalist Profile LinkedIn Banner (1).png">Gambar 2</option>
+        <option value="White Minimalist Profile LinkedIn Banner.png">Gambar 3</option>
+    </select>
+
+    <!-- Pilihan Opacity -->
+    <label for="opacity-select">Pilih Opacity:</label>
+    <select id="opacity-select">
+        <option value="1">1</option>
+        <option value="0.5">0.5</option>
+        <option value="0.2">0.2</option>
+    </select>
+
+    <!-- Tombol Kirim -->
+    <button id="submit-btn">Kirim</button>
+
+    <div>
+        <h3>Hasil</h3>
+        <div class="image-preview" id="result-image"></div>
+    </div>
+
+    <script>
+        const imageSelect = document.getElementById('image-select');
+        const opacitySelect = document.getElementById('opacity-select');
+        const submitBtn = document.getElementById('submit-btn');
+        const resultImage = document.getElementById('result-image');
+
+        submitBtn.addEventListener('click', () => {
+            // Dapatkan nilai gambar dan opacity yang dipilih
+            const selectedImage = imageSelect.value;
+            const selectedOpacity = opacitySelect.value;
+
+            // Ubah konten dan opacity gambar hasil
+            resultImage.innerHTML = `<img src="${selectedImage}" alt="Gambar Hasil" style="opacity: ${selectedOpacity};">`;
+        });
+    </script>
+
+</body>
+</html>
